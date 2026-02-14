@@ -230,7 +230,7 @@ export default function Efficiency() {
 
   return (
     <div
-      className="flex flex-col shadow-2xl shadow-black max-w-xl h-full"
+      className="flex flex-col shadow-2xl shadow-black min-w-100 max-w-full h-full"
       style={{ background: PALETTE.bg }}
     >
       <h3
