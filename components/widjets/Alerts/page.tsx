@@ -63,7 +63,7 @@ export default function Alerts() {
   };
 
   return (
-    <div className="bg-[#BFBDC1] shadow-2xl shadow-black w-xl h-110">
+    <div className="bg-[#BFBDC1] shadow-2xl shadow-black min-w-60 max-w-full h-110">
       <h3 className="mb-3 text-lg text-[#BFBDC1] font-semibold bg-[#37323E] py-2 px-6 ">
         Alerts
       </h3>
