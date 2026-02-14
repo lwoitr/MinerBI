@@ -125,7 +125,7 @@ export default function KPI_ore_ph() {
   };
 
   return (
-    <div className="bg-[#BFBDC1] w-82">
+    <div className="bg-[#BFBDC1] max-w-full min-w-70">
       <div className="bg-[#2c2731] py-4 pb-10">
         <div className="text-2xl px-6 text-[#BFBDC1]">Ore per/h:</div>
 

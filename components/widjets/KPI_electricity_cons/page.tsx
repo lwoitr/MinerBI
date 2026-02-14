@@ -121,11 +121,9 @@ export default function KPI_electricity_cons() {
   };
 
   return (
-    <div className="bg-[#BFBDC1] w-82">
+    <div className="bg-[#BFBDC1] max-w-full min-w-70">
       <div className="bg-[#2c2731] py-4 pb-10">
-        <div className="text-2xl px-6 text-[#BFBDC1]">
-          Electricity Consumption:
-        </div>
+        <div className="text-2xl px-6 text-[#BFBDC1]">Electricity Cons:</div>
 
         <div className="flex items-baseline text-[#DEB841]">
           <div className="text-4xl pl-6 pb-1 pr-1 pt-1 font-bold">

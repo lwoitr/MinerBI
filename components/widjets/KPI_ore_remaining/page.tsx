@@ -100,7 +100,7 @@ export default function KPI_ore_remaining() {
   };
 
   return (
-    <div className="bg-[#BFBDC1] w-82">
+    <div className="bg-[#BFBDC1] max-w-full min-w-70">
       <div className="bg-[#2c2731] py-4 pb-18">
         <div className="text-2xl px-6 text-[#BFBDC1]">Remaining Ore:</div>
 

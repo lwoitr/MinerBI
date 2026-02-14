@@ -6,7 +6,7 @@ const KpiDeepDive = () => {
     <div>
       <div
         className="
-      p-4 bg-[#6D6A75]"
+      p-4 bg-[#6D6A75] shadow-[#6D6A75] shadow-md"
       >
         <div className=" text-lg text-[#BFBDC1] font-semibold bg-[#37323E] py-2 px-4 ">
           Ore Production deep dive
