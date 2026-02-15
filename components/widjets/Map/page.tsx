@@ -95,8 +95,7 @@ export default function MinersMap() {
   return (
     <div
       ref={wrapperRef}
-      className="relative bg-[#100e12] overflow-hidden border border-[#BFBDC1]"
-      style={{ width: "100%", height: "260px" }}
+      className="relative bg-[#100e12] overflow-hidden border border-[#BFBDC1] w-full h-full"
     >
       <div
         aria-hidden
