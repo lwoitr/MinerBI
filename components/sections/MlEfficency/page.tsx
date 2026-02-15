@@ -8,10 +8,10 @@ const MlEfficency = () => {
       <div className="">
         <MinerInterface></MinerInterface>
       </div>
-      <div className="min-w-60 max-w-full">
+      <div className="min-w-90 max-w-full">
         <Alerts></Alerts>
       </div>
-      <div className="min-w-110 max-w-full ">
+      <div className="w-120 ">
         <Efficency></Efficency>
       </div>
     </div>

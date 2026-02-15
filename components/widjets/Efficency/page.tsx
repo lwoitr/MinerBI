@@ -243,7 +243,7 @@ export default function Efficiency() {
       <div className="flex w-full h-full p-2 gap-2">
         {/* Health */}
         <div
-          className="w-full h-full  border"
+          className="w-60 h-full  border"
           style={{
             borderColor: PALETTE.dark,
             background: "transparent",
@@ -302,7 +302,7 @@ export default function Efficiency() {
 
         {/* Efficiency */}
         <div
-          className="w-full h-full border"
+          className="w-60 h-full border"
           style={{
             borderColor: PALETTE.dark,
             background: "transparent",
