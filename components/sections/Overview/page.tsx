@@ -6,8 +6,8 @@ import Status from "@/components/widjets/Status/page";
 const Overview = () => {
   return (
     <div className="w-full">
-      <div className="grid grid-cols-9grid-rows-3 gap-4">
-        <div className="col-start-7 col-end-9 row-span-3  shadow-[#6D6A75] shadow-md h-60">
+      <div className="grid grid-cols-9 grid-rows-3 gap-4">
+        <div className="col-start-7 col-end-10 row-span-3  shadow-[#6D6A75] shadow-md h-59">
           <Map></Map>
         </div>
         <div className="col-span-6 row-start-1 row-span-2 shadow-[#6D6A75] shadow-md">

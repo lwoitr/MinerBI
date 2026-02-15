@@ -83,8 +83,8 @@ export default function KPI_ore_remaining() {
         fontSize: 10,
         formatter: (value: number) => `${(value / 1000000).toFixed(1)} T`,
       },
-      splitNumber: 2,
-      splitLine: { lineStyle: { color: "#6D6A75" } },
+
+      splitLine: false,
     },
     series: [
       {
@@ -101,7 +101,7 @@ export default function KPI_ore_remaining() {
 
   return (
     <div className="bg-[#BFBDC1] max-w-full min-w-70">
-      <div className="bg-[#2c2731] py-4 pb-18">
+      <div className="bg-[#2c2731] py-4 pb-16">
         <div className="text-2xl px-6 text-[#BFBDC1]">Remaining Ore:</div>
 
         <div className="flex items-baseline text-[#DEB841]">
@@ -112,7 +112,7 @@ export default function KPI_ore_remaining() {
         </div>
       </div>
 
-      <div className="pb-3 pt-4 h-44 w-full">
+      <div className="pb-3 pt-4 h-40 w-full">
         {chartData.length > 0 ? (
           <ReactECharts
             option={option}

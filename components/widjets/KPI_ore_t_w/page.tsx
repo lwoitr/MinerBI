@@ -20,14 +20,6 @@ export default function KPI_ore_t_w() {
       .then((r) => r.json())
       .then(
         (data: { weeks: string; weekly_growth: number; total: number }[]) => {
-          if (!Array.isArray(data) || data.length === 0) {
-            setCurrentTotal("—");
-            setThisWeek("—");
-            setPrevWeek("—");
-            setChartData([]);
-            return;
-          }
-
           const latest = data[0];
           const previous = data.length > 1 ? data[1] : null;
 
@@ -141,21 +133,22 @@ export default function KPI_ore_t_w() {
           <div className="text-xl">T</div>
         </div>
         <div className="flex items-baseline text-[#BFBDC1]">
-          <div className="text-2xl pl-6 flex items-baseline">
+          <div className="text-md pl-6 flex items-baseline">
             +{thisWeekDisplay}
           </div>
-          <div className="pl-1 text-xl">T</div>
-          <div className="pl-1">(this week)</div>
-
-          {arrow && (
-            <span className={`pl-2 ${arrowColor}`}>
-              {arrow} {percentage}
-            </span>
-          )}
+          <div className="pl-1 text-md">T</div>
+          <div className="pl-1 text-md">(this week)</div>
+          <div className="text-xs">
+            {arrow && (
+              <span className={`pl-2 ${arrowColor}`}>
+                {arrow} {percentage}
+              </span>
+            )}
+          </div>
         </div>
 
         <div className="flex items-baseline text-[#6D6A75]">
-          <div className="text-md pl-6 flex items-baseline">
+          <div className="text-xs/2 pl-6 flex items-baseline">
             +{prevWeekDisplay}
           </div>
           <div className="pl-1 ">T</div>
@@ -163,7 +156,7 @@ export default function KPI_ore_t_w() {
         </div>
       </div>
 
-      <div className="pb-3 pt-4 h-44 w-full">
+      <div className="pb-3 pt-4 h-40 w-full">
         {chartData.length > 0 ? (
           <ReactECharts
             option={option}

@@ -142,40 +142,42 @@ export default function IDoK1() {
   };
 
   return (
-    <div className=" w-160 h-full bg-[#BFBDC1]  p-2">
-      <div className="flex ">
-        <div className="  h-full flex flex-col items-center   ">
-          <div className="shadow-sm shadow-[#BFBDC1] ">
-            <div className="border border-[#37323E] w-full">
-              <div className="p-2 font-semibold text-sm text-[#37323E] bg-[#BFBDC1] ">
-                Ore mined per month this Year
+    <div className="pl-2">
+      <div className=" w-160 h-full bg-[#BFBDC1] border-[#37323E] border">
+        <div className=" flex p-2 ">
+          <div className="  h-full flex flex-col items-center   ">
+            <div className="shadow-sm shadow-[#BFBDC1] ">
+              <div className="border border-[#37323E] w-full">
+                <div className="p-2 font-semibold text-sm text-[#37323E] bg-[#BFBDC1] ">
+                  Ore mined per month this Year
+                </div>
+              </div>
+              <div className="h-82 w-120 bg-[#BFBDC1] border border-[#37323E] border-t-0 ">
+                <ReactECharts
+                  option={option}
+                  style={{ width: "100%", height: "100%" }}
+                />
               </div>
             </div>
-            <div className="h-80 w-120 bg-[#BFBDC1] border border-[#37323E] border-t-0 ">
-              <ReactECharts
-                option={option}
-                style={{ width: "100%", height: "100%" }}
-              />
-            </div>
           </div>
-        </div>
 
-        <div className=" bg-[#37323E] w-full text-[#100e12] text-sm shadow-sm shadow-[#BFBDC1]">
-          <div className="p-2 px-4 ">
-            <div className=" font-semibold text-[#BFBDC1]">Stats p/h..</div>
-          </div>
-          <div className="px-4">
-            <div className="mb-2   text-[#BFBDC1] ">
-              Max per hour:{" "}
-              <div className="text-[#DE9E36]">{maxOre?.value.toFixed(4)}</div>
+          <div className=" bg-[#37323E] w-full text-[#100e12] text-sm shadow-sm shadow-[#BFBDC1]">
+            <div className="p-2 px-4 ">
+              <div className=" font-semibold text-[#BFBDC1]">Stats p/h..</div>
             </div>
-            <div className="mb-2 text-[#BFBDC1] ">
-              Min per hour:{" "}
-              <div className="text-[#DE9E36]">{minOre?.value.toFixed(4)}</div>
-            </div>
-            <div className="mb-2 text-[#BFBDC1] ">
-              Avg per hour:{" "}
-              <div className="text-[#DE9E36]">{avgOre.toFixed(4)}</div>
+            <div className="px-4">
+              <div className="mb-2   text-[#BFBDC1] ">
+                Max per hour:{" "}
+                <div className="text-[#DE9E36]">{maxOre?.value.toFixed(4)}</div>
+              </div>
+              <div className="mb-2 text-[#BFBDC1] ">
+                Min per hour:{" "}
+                <div className="text-[#DE9E36]">{minOre?.value.toFixed(4)}</div>
+              </div>
+              <div className="mb-2 text-[#BFBDC1] ">
+                Avg per hour:{" "}
+                <div className="text-[#DE9E36]">{avgOre.toFixed(4)}</div>
+              </div>
             </div>
           </div>
         </div>

@@ -78,7 +78,7 @@ export default function Heatmap() {
       calculable: true,
       orient: "horizontal",
       left: "center",
-      top: "0",
+      top: "-6",
       color: ["#37323E", "#6D6A75", "#DEB841", "#DE9E36"],
     },
     series: [
@@ -100,14 +100,14 @@ export default function Heatmap() {
     grid: {
       left: 60,
       right: 60,
-      top: 70,
+      top: 60,
       bottom: 10,
       containLabel: true,
     },
   };
 
   return (
-    <div className="h-115 bg-[#BFBDC1] p-2 ">
+    <div className="h-100 w-full bg-[#BFBDC1] p-2 ">
       <div className="border border-black h-full w-full">
         <ReactECharts
           option={option}

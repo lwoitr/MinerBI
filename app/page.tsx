@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export default function Home() {
   return (
     <MinerProvider>
-      <div>
+      <div className="p-6">
         <Dashboard />
       </div>
     </MinerProvider>

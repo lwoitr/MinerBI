@@ -95,7 +95,7 @@ export default function MinersMap() {
   return (
     <div
       ref={wrapperRef}
-      className="relative bg-[#100e12] overflow-hidden border border-[#BFBDC1] w-full h-full"
+      className="relative bg-[#100e12] overflow-hidden border border-[#BFBDC1] h-full w-full"
     >
       <div
         aria-hidden
@@ -186,8 +186,8 @@ export default function MinersMap() {
         </svg>
       </div>
 
-      <div className="bg-[#BFBDC1] z-900 px-6 py-1 absolute bottom-0 left-0 right-0">
-        <div className="text-sm text-[#37323E]">
+      <div className="bg-[#BFBDC1] z-900 px-6  absolute bottom-0 left-0 right-0">
+        <div className="text-xs text-[#37323E]">
           Coords: {displayX.toFixed(2)}, {displayY.toFixed(2)}
         </div>
       </div>

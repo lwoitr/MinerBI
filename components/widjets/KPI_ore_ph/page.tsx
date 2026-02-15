@@ -55,6 +55,12 @@ export default function KPI_ore_ph() {
         }));
 
         setChartData(formatted);
+      })
+      .catch((err) => {
+        console.error("Fetch error:", err);
+        setCurrentValue("—");
+        setPrevValue("—");
+        setChartData([]);
       });
   }, [selectedId]);
 
@@ -108,7 +114,7 @@ export default function KPI_ore_ph() {
     yAxis: {
       type: "value",
       axisLabel: { fontSize: 10, formatter: "{value} kg" },
-      splitNumber: 3,
+      splitNumber: 2,
       splitLine: { lineStyle: { color: "#6D6A75" } },
     },
     series: [
@@ -137,19 +143,20 @@ export default function KPI_ore_ph() {
         </div>
 
         <div className="flex items-baseline text-[#BFBDC1]">
-          <div className="text-2xl pl-6 flex items-baseline">{prevDisplay}</div>
+          <div className="text-md pl-6 flex items-baseline">{prevDisplay}</div>
           <div className="pl-1">kg</div>
           <div className="pl-1">(last hour)</div>
-
-          {arrow && (
-            <span className={`pl-2 ${arrowColor}`}>
-              {arrow} {percentage}
-            </span>
-          )}
+          <div className="text-xs">
+            {arrow && (
+              <span className={`pl-2 ${arrowColor}`}>
+                {arrow} {percentage}
+              </span>
+            )}
+          </div>
         </div>
       </div>
 
-      <div className="pb-3 pt-4 h-44 w-full">
+      <div className="pb-3 pt-4 h-40 w-full">
         {chartData.length > 0 ? (
           <ReactECharts
             option={option}

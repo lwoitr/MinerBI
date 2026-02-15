@@ -19,13 +19,6 @@ export default function KPI_electricity_cons() {
     fetch(`/api/KPIS/electricity_cons?id=${selectedId}`)
       .then((r) => r.json())
       .then((data: { hr: number; dat: string; hravg: number }[]) => {
-        if (!Array.isArray(data) || data.length === 0) {
-          setLatest("—");
-          setPrev("—");
-          setChartData([]);
-          return;
-        }
-
         const latestValue = data[0]?.hravg ?? "—";
         const prevValue = data.length > 1 ? (data[1]?.hravg ?? "—") : "—";
 
@@ -33,7 +26,7 @@ export default function KPI_electricity_cons() {
         setPrev(prevValue);
 
         const reversed = data.slice().reverse();
-        const formatted = reversed.map((item, index) => ({
+        const formatted = data.map((item, index) => ({
           time:
             index === reversed.length - 1
               ? "now"
@@ -133,19 +126,21 @@ export default function KPI_electricity_cons() {
         </div>
 
         <div className="flex items-baseline text-[#BFBDC1]">
-          <div className="text-2xl pl-6 flex items-baseline">{prevDisplay}</div>
+          <div className="text-md pl-6 flex items-baseline">{prevDisplay}</div>
           <div className="pl-1">kWh</div>
           <div className="pl-1">(last hour)</div>
 
-          {arrow && (
-            <span className={`pl-2 ${arrowColor}`}>
-              {arrow} {percentage}
-            </span>
-          )}
+          <div className="text-xs">
+            {arrow && (
+              <span className={`pl-2 ${arrowColor}`}>
+                {arrow} {percentage}
+              </span>
+            )}
+          </div>
         </div>
       </div>
 
-      <div className="pb-3 pt-4 h-44 w-full">
+      <div className="pb-3 pt-4 h-40 w-full">
         {chartData.length > 0 ? (
           <ReactECharts
             option={option}
