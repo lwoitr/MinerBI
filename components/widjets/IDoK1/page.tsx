@@ -163,7 +163,7 @@ export default function IDoK1() {
 
           <div className=" bg-[#37323E] w-full text-[#100e12] text-sm shadow-sm shadow-[#BFBDC1]">
             <div className="p-2 px-4 ">
-              <div className=" font-semibold text-[#BFBDC1]">Stats p/h..</div>
+              <div className=" font-semibold text-[#BFBDC1]">Stats p/h</div>
             </div>
             <div className="px-4">
               <div className="mb-2   text-[#BFBDC1] ">

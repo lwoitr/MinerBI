@@ -69,7 +69,7 @@ export default function Alerts() {
       </h3>
 
       {visible.length === 0 ? (
-        <div>Проблем не обнаружено!</div>
+        <div className="text-black px-6 pt-2">No probplems detected.</div>
       ) : (
         <ul className="list-none m-4 shadow-2xl bg-gray-400/5">
           {visible.map((p) => (
