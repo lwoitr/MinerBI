@@ -51,7 +51,7 @@ export default function LogsTable() {
   };
 
   return (
-    <div id="logs-table" className="p-4 overflow-x-auto ">
+    <div id="logs-table" className="p-6 overflow-x-auto ">
       <table className="w-full border border-[#37323E] text-sm shadow-2xl shadow-black">
         <thead
           style={{ backgroundColor: colors.bgHeader, color: colors.textHeader }}
