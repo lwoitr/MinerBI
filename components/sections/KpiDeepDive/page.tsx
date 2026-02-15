@@ -11,7 +11,7 @@ const KpiDeepDive = () => {
         <div className=" text-lg text-[#BFBDC1] font-semibold bg-[#37323E] py-2 px-4 ">
           Ore Production deep dive
         </div>
-        <div className="flex justify-between bg-[#6D6A75]   shadow-2xl shadow-[#100e12]">
+        <div className="flex justify-between bg-[#BFBDC1] items-center shadow-2xl shadow-[#100e12]">
           <div>
             <IDoK1></IDoK1>
           </div>
