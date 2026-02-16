@@ -22,9 +22,13 @@
 
 Выбранный стек для задачи nextjs и clickhouse
 
+![system_arch_screenshot](public/system_arch.png)
+
 Содержание:
 1 Описание данных, таблиц:
 2 Апи (SQL запросы в бд):
 3 ML алгоритм для предсказания проблем
 
-![system_arch_screenshot](/miner_bi/public/system_arch.png)
+1.1 ER-диаграмма
+
+![system_arch_screenshot](public/er_diagram.svg)
