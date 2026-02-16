@@ -65,4 +65,4 @@
 
 Jupyter notebook: [ML/ml.ipynb](https://github.com/lwoitr/MinerBI/blob/main/ML/ml.ipynb)
 
-Модель обучается на сгенерированных данных сенсоров.
+Модель обучалась на сгенерированных данных сенсоров.
