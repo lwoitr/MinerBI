@@ -63,6 +63,6 @@
 
 Для предсказания проблем использовался RandomForest.
 
-Jupyter notebook: ML/ml.ipynb
+Jupyter notebook: [ML/ml.ipynb](https://github.com/lwoitr/MinerBI/blob/main/ML/ml.ipynb)
 
 Модель обучается на исторических данных сенсоров.
