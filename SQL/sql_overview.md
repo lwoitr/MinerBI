@@ -407,3 +407,318 @@
     -- RESULT --
     delta                   date
     48.23891712585464       2026-02-01
+
+##### Значения сенсоров на последнию запись:
+
+    WITH last_cds AS (
+        SELECT *
+        FROM current_draw_sensor
+        WHERE miner_id = '1'
+        ORDER BY "timestamp" DESC
+        LIMIT 1
+    ),
+    last_rs AS (
+        SELECT *
+        FROM rotations_sensor
+        WHERE miner_id = '1'
+        ORDER BY "timestamp" DESC
+        LIMIT 1
+    ),
+    last_vs AS (
+        SELECT *
+        FROM vibration_sensor
+        WHERE miner_id = '1'
+        ORDER BY "timestamp" DESC
+        LIMIT 1
+    ),
+    last_ts AS (
+        SELECT *
+        FROM torque_sensor
+        WHERE miner_id = '1'
+        ORDER BY "timestamp" DESC
+        LIMIT 1
+    ),
+    last_mt AS (
+        SELECT *
+        FROM motor_temperature_sensor
+        WHERE miner_id = '1'
+        ORDER BY "timestamp" DESC
+        LIMIT 1
+    )
+
+    SELECT
+    current_draw,
+    rotations,
+    torque,
+    motor_temperature,
+    vibration_level
+
+
+    FROM last_cds cds
+    JOIN last_rs rs ON cds.miner_id = rs.miner_id
+    JOIN last_vs vs ON cds.miner_id = vs.miner_id
+    JOIN last_ts ts ON cds.miner_id = ts.miner_id
+    JOIN last_mt mt ON cds.miner_id = mt.miner_id
+
+    -- RESULT --
+    current-draw            rotations               torque
+    9.749051979915519	805.3038740546657	70.59826094199936
+    motor_temperature       vibration_level
+    46.2532311481205	0.8239509912987887
+
+##### Коордианты всех установок:
+
+    SELECT sl.x_coord, sl.y_coord, mi.miner_id
+    FROM miner_information mi
+    JOIN site_locations sl  ON mi.miner_location = sl.site_name
+
+    -- RESULT --
+    x_coord         y_coord         miner_id
+    81.16594791	-185.3303224	1
+    -235.0036826	131.4334596	2
+    -194.9732823	28.66400922	3
+    316.0798465	61.31362695	4
+    535.7727821	-111.0975681	5
+    ...
+
+##### Вероятности возникновения проблем:
+
+    with last_row as (
+    select *
+    from miner_probabilities
+    where miner_id = '1'
+    order by start_time desc
+    limit 1
+        ),
+
+        un AS(
+        select
+            upper(arrayJoin(mapKeys(row_map))) as id,
+            arrayJoin(mapValues(row_map)) as probability
+        from (
+            select map('s1', S1) as row_map
+            from last_row
+            union all
+            select map('s2', S2) as row_map
+            from last_row
+            union all
+            select map('s3', S3) as row_map
+            from last_row
+            union all
+            select map('s4', S4) as row_map
+            from last_row
+            union all
+            select map('s5', S5) as row_map
+            from last_row
+            union all
+            select map('s6', S6) as row_map
+            from last_row
+            union all
+            select map('s7', S7) as row_map
+            from last_row
+            union all
+            select map('s8', S8) as row_map
+            from last_row
+            union all
+            select map('s9', S9) as row_map
+            from last_row
+            union all
+            select map('s10', S10) as row_map
+            from last_row
+            union all
+            select map('s11', S11) as row_map
+            from last_row
+            union all
+            select map('s12', S12) as row_map
+            from last_row
+            union all
+            select map('s13', S13) as row_map
+            from last_row
+            union all
+            select map('s14', S14) as row_map
+            from last_row
+            union all
+            select map('s15', S15) as row_map
+            from last_row
+            union all
+            select map('s16', S16) as row_map
+            from last_row
+            union all
+            select map('s17', S17) as row_map
+            from last_row
+            union all
+            select map('s18', S18) as row_map
+            from last_row
+            union all
+            select map('d1', D1) as row_map
+            from last_row
+            union all
+            select map('d2', D2) as row_map
+            from last_row
+            union all
+            select map('d3', D3) as row_map
+            from last_row
+            union all
+            select map('d4', D4) as row_map
+            from last_row
+            union all
+            select map('d5', D5) as row_map
+            from last_row
+            union all
+            select map('d6', D6) as row_map
+            from last_row
+            union all
+            select map('d7', D7) as row_map
+            from last_row
+            union all
+            select map('d8', D8) as row_map
+            from last_row
+            union all
+            select map('d9', D9) as row_map
+            from last_row
+            union all
+            select map('d10', D10) as row_map
+            from last_row
+            union all
+            select map('d11', D11) as row_map
+            from last_row
+            union all
+            select map('d12', D12) as row_map
+            from last_row
+            union all
+            select map('d13', D13) as row_map
+            from last_row
+            union all
+            select map('d14', D14) as row_map
+            from last_row
+            union all
+            select map('m1', M1) as row_map
+            from last_row
+            union all
+            select map('m2', M2) as row_map
+            from last_row
+            union all
+            select map('m3', M3) as row_map
+            from last_row
+            union all
+            select map('f1', F1) as row_map
+            from last_row
+            union all
+            select map('f2', F2) as row_map
+            from last_row
+            union all
+            select map('f3', F3) as row_map
+            from last_row
+            union all
+            select map('f4', F4) as row_map
+            from last_row
+            union all
+            select map('f5', F5) as row_map
+            from last_row
+            union all
+            select map('f6', F6) as row_map
+            from last_row
+            union all
+            select map('f7', F7) as row_map
+            from last_row
+        ))
+
+        SELECT probability
+        FROM un
+
+        JOIN p_problems pp ON pp.id = un.id
+        ORDER BY probability DESC
+
+        -- RESULT --
+        probability
+        0.34
+        0.32
+        0.17
+        0.15
+        0.15
+        ...
+
+##### Таблица логов:
+
+    SELECT *
+    FROM maintenance_logs ml
+    WHERE miner_id = '1'
+    ORDER BY ml."timestamp" DESC
+
+##### Вся таблица miner_information:
+
+    SELECT *
+    FROM miner_information
+    WHERE miner_id = '1'
+
+##### Данные из таблицы miner_information для фильтра:
+
+    SELECT
+    mi.miner_id,
+    mi.miner_model,
+    mi.miner_name,
+    mi.miner_type
+    FROM miner_information mi
+
+##### Координаты конкретной буровой установки:
+
+    SELECT sl.x_coord, sl.y_coord
+    FROM miner_information mi
+    JOIN site_locations sl  ON mi.miner_location = sl.site_name
+    WHERE miner_id = '1'
+
+##### Статус станвоки на последний момент времени:
+
+    SELECT state
+            FROM machine_state ms
+            WHERE ms.miner_id = '1'
+            ORDER BY ms."timestamp"  DESC
+            LIMIT 1
+
+##### Кол-во максимально заявленой добываемой руды в ч:
+
+SELECT mi.max_throughput \*1.15 AS mo
+FROM miner_information mi
+WHERE miner_id = {minerId: String}
+
+##### Руда в день по месяцу:
+
+    WITH stats AS (
+    SELECT
+    toDateTime(os."timestamp") AS dt,
+    (os.ore_counter_kg - lag(os.ore_counter_kg, 1, 0)
+    OVER (ORDER BY os."timestamp" ASC)) AS delta
+    FROM ore_sensor os
+    WHERE miner_id = '1'
+    ),
+    filtered AS (
+    SELECT \*
+    FROM stats
+    WHERE delta BETWEEN 1 AND 200
+    )
+
+    SELECT sum(delta) AS value,
+    toDate(dt) AS day,
+    toMonth(dt) AS month
+    FROM filtered
+    WHERE dt BETWEEN
+    (
+    SELECT max(toDate(timestamp)) - INTERVAL 1 YEAR
+    FROM ore_sensor
+    WHERE miner_id = '1'
+    )
+    AND (
+    SELECT max(toDate(timestamp))
+    FROM ore_sensor
+    WHERE miner_id = '1'
+    )
+    GROUP BY day, month
+    ORDER BY day DESC
+    OFFSET 1
+
+    --RESULT--
+    value             day        month
+    7344.73552547209  2026-01-31 1
+    7240.231308849994 2026-01-30 1
+    7391.802975047845 2026-01-29 1
+    7310.358609993011 2026-01-28 1
