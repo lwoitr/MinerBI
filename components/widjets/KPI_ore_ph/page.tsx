@@ -3,6 +3,11 @@ import { useMiner } from "@/app/context/MinerContext/MinerContext";
 import { useEffect, useState } from "react";
 import ReactECharts from "echarts-for-react";
 
+type ApiRow = {
+  timestamp: string;
+  ore_per_hour: number | null;
+};
+
 export default function KPI_ore_ph() {
   const { selectedId } = useMiner();
 
@@ -15,9 +20,16 @@ export default function KPI_ore_ph() {
   useEffect(() => {
     if (!selectedId) return;
 
-    fetch(`/api/KPIS/ore_per_hour?id=${selectedId}`)
+    fetch(`/api/KPIS/ore_per_hour_chart?id=${selectedId}`)
       .then((r) => r.json())
-      .then((data: { ore_per_hour: number }[]) => {
+      .then((data: ApiRow[]) => {
+        if (!Array.isArray(data) || data.length === 0) {
+          setCurrentValue("—");
+          setPrevValue("—");
+          setChartData([]);
+          return;
+        }
+
         const currRaw = data[0]?.ore_per_hour;
         const prevRaw = data[1]?.ore_per_hour;
 
@@ -26,19 +38,6 @@ export default function KPI_ore_ph() {
 
         setCurrentValue(curr);
         setPrevValue(prev);
-      });
-  }, [selectedId]);
-
-  useEffect(() => {
-    if (!selectedId) return;
-
-    fetch(`/api/KPIS/ore_per_hour_chart?id=${selectedId}`)
-      .then((r) => r.json())
-      .then((data: { ore_per_hour: number | null }[]) => {
-        if (!Array.isArray(data) || data.length === 0) {
-          setChartData([]);
-          return;
-        }
 
         const reversed = data.slice().reverse();
 
@@ -47,7 +46,6 @@ export default function KPI_ore_ph() {
             index === reversed.length - 1
               ? "now"
               : `${reversed.length - 1 - index} h ago`,
-
           value:
             item.ore_per_hour != null && !isNaN(item.ore_per_hour)
               ? Number(item.ore_per_hour)

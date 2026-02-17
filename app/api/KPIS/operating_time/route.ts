@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
   const result = await clickhouse.query({
     query: `
 WITH 
-parsed AS (
+    parsed AS (
     SELECT 
         timestamp AS ts,
         state

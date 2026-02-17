@@ -39,7 +39,7 @@ WHERE date BETWEEN
 GROUP BY mon
 ORDER BY dt ASC
 LIMIT 11
-;
+
 `,
     query_params: { minerId: id },
     format: "JSONEachRow",
