@@ -667,7 +667,7 @@
     JOIN site_locations sl  ON mi.miner_location = sl.site_name
     WHERE miner_id = '1'
 
-##### Статус станвоки на последний момент времени:
+##### Статус устанвоки на последний момент времени:
 
     SELECT state
             FROM machine_state ms
@@ -677,9 +677,9 @@
 
 ##### Кол-во максимально заявленой добываемой руды в ч:
 
-SELECT mi.max_throughput \*1.15 AS mo
-FROM miner_information mi
-WHERE miner_id = {minerId: String}
+    SELECT mi.max_throughput *1.15 AS mo
+    FROM miner_information mi
+    WHERE miner_id = {minerId: String}
 
 ##### Руда в день по месяцу:
 
